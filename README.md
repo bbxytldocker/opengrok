@@ -10,9 +10,9 @@
 - docker-compose.yml: `docker-compose up` 命令需要的配置文件
 - see-code.sh: 启动容器的命令项脚本
 - packs:
-	- apache-tomcat-8.5.23.tar.gz: 下载好的 tomcat 压缩包
-	- opengrok-1.1-rc15.tar.gz: 下载好的 opengrok 压缩包
-	- 上面的压缩包也可以自己去下载
+	- apache-tomcat.tar.gz: 下载好的 tomcat 压缩包(这里的包为: apache-tomcat-8.5.23.tar.gz)
+	- opengrok.tar.gz: 下载好的 opengrok 压缩包(这里的包为: opengrok-1.1-rc15.tar.gz)
+	- 上面的压缩包也可以自己去下载，下载完后，修改为对应的上面的名字放到 packs 里即可使用
 
 ## 镜像说明
 镜像使用的Dockerfile为: https://github.com/bbxytldocker/opengrok

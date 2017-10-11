@@ -24,8 +24,10 @@ RUN apk add --no-cache --update \
 	/var/tmp/* \
 	&& mkdir /var/cache/apk
 
-COPY ./packs/apache-tomcat-8.5.23.tar.gz /tmp/
-COPY ./packs/opengrok-1.1-rc15.tar.gz /tmp/
+# COPY ./packs/apache-tomcat-8.5.23.tar.gz /tmp/
+# COPY ./packs/opengrok-1.1-rc15.tar.gz /tmp/
+COPY ./packs/apache-tomcat.tar.gz /tmp/
+COPY ./packs/opengrok.tar.gz /tmp/
 COPY ./bashrc /tmp/
 RUN cd /tmp/ \
 	&& mv bashrc ~/.bashrc \
