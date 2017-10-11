@@ -1,10 +1,11 @@
 #! /bin/sh
 
 cd /tmp/ \
-&& tar xzf apache-tomcat.tar.gz \
-&& mv apache-tomcat /opengrok/packs/ \
-&& tar xzf opengrok.tar.gz \
-&& mv opengrok /opengrok/packs/
+&& tar xzf apache-tomcat.tar.gz -C /opengrok/packs \
+&& tar xzf opengrok.tar.gz -C /opengrok/packs \
+&& cd /opengrok/packs \
+&& mv apache-tomcat* /opengrok/packs/apache-tomcat \
+&& mv opengrok* /opengrok/packs/opengrok
 
 source ~/.bashrc
 

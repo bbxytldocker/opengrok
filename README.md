@@ -24,7 +24,7 @@
 sh ./see-code.sh
 ```
 
-2. 使用 `docker-compose up 命令`, 增加 查看的项目代码
+2. 使用 `docker-compose up -d 命令`, 增加 查看的项目代码
 打开 `docker-compose.yml` 文件，在 `volumes` 下添加对应的项目，映射到 `/projects` 下
 
 
