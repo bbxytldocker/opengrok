@@ -1,0 +1,17 @@
+#! /bin/sh
+
+cd /tmp/ \
+&& tar xzf apache-tomcat-8.5.23.tar.gz \
+&& mv apache-tomcat-8.5.23 /opengrok/packs/ \
+&& tar xzf opengrok-1.1-rc15.tar.gz \
+&& mv opengrok-1.1-rc15 /opengrok/packs/
+
+source ~/.bashrc
+
+/opengrok/packs/apache-tomcat-8.5.23/bin/startup.sh \
+&& /opengrok/packs/opengrok-1.1-rc15/bin/OpenGrok deploy \
+&& sleep 5 \
+&& /opengrok/packs/opengrok-1.1-rc15/bin/OpenGrok index /projects
+
+bash
+
