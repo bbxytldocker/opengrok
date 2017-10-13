@@ -1,7 +1,7 @@
 docker run -it \
 	--name myopengrok \
 	-p 38010:8080 \
-	-d \
-	-v ~/data/git/qtz/q2_code/q2_engine:/projects/q2_engine \
+	-v ~/data/git/test_project:/projects/test_project \
 	bbxytl/opengrok
+	# -d \
 
