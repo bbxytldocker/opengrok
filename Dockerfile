@@ -26,14 +26,14 @@ RUN apk add --no-cache --update \
 
 COPY ./packs/apache-tomcat.tar.gz /tmp/
 COPY ./packs/opengrok.tar.gz /tmp/
-COPY ./bashrc /tmp/
+COPY ./packs/bashrc.local /tmp/
 RUN cd /tmp/ \
 	&& mv bashrc.local ~/.bashrc.local \
 	&& mkdir -p /projects \
 	&& mkdir -p /packs \
 	&& mkdir -p /cache
 
-COPY ./start-run /usr/local/bin/start-run
+COPY ./packs/start-run /usr/local/bin/start-run
 
 ENV TERM=xterm-256color
 ENTRYPOINT ["sh", "/usr/local/bin/start-run"]
