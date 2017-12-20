@@ -1,7 +1,7 @@
 
-SUBVERSION_DIR="~/.subversion"
-PROJECTS_DIR="~/projects-4-opengrok"
-CACHE_DIR="~/cache-4-opengrok"
+SUBVERSION_DIR=~/.subversion
+PROJECTS_DIR=~/projects-4-opengrok
+CACHE_DIR=~/cache-4-opengrok
 
 docker run -it \
 	--name opengrok \
