@@ -1,0 +1,40 @@
+alias l="ls -al"
+alias ll="ls -l"
+alias ..="cd ../"
+alias ...="cd ../../"
+alias cdu="cd -"
+alias vim="vi"
+PS1='\[\e[1;35m\][\[\e[1;33m\]\u@\h \[\e[1;31m\]\w\[\e[1;35m\]]\[\e[1;36m\]\$ \[\e[0m\]'
+
+# 系统变量
+export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
+export JRE_HOME=$JAVA_HOME/jre
+export CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+
+export OPENGROK_TOMCAT_BASE=/packs/apache-tomcat
+export OPENGROK_VERBOSE=true
+export OPENGROK_INSTANCE_BASE=/cache
+
+# 自定义变量
+export OPENGROK_PROJECT_DIR=/projects
+export OPENGROK_BIN="/packs/opengrok/bin/OpenGrok"
+
+# 手动开环境
+deploy(){
+	$OPENGROK_TOMCAT_BASE/bin/startup.sh \
+	&& $OPENGROK_BIN deploy
+}
+
+# 更新索引
+index(){
+	$OPENGROK_BIN index $OPENGROK_PROJECT_DIR
+}
+
+# 重新 index
+reindex(){
+	cd $OPENGROK_INSTANCE_BASE \
+	&& ls | while read line; do rm -rf "$line";done
+	index
+}
+

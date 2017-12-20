@@ -1,18 +1,25 @@
 #! /bin/sh
 
 cd /tmp/ \
-&& tar xzf apache-tomcat.tar.gz -C /opengrok/packs \
-&& tar xzf opengrok.tar.gz -C /opengrok/packs \
-&& cd /opengrok/packs \
-&& mv apache-tomcat* /opengrok/packs/apache-tomcat \
-&& mv opengrok* /opengrok/packs/opengrok
+&& tar xzf apache-tomcat.tar.gz -C /packs \
+&& tar xzf opengrok.tar.gz -C /packs \
+&& cd /packs \
+&& mv apache-tomcat* /packs/apache-tomcat \
+&& mv opengrok* /packs/opengrok
 
-source ~/.bashrc
+# 先启动环境
+source ~/.bashrc.local
 
-/opengrok/packs/apache-tomcat/bin/startup.sh \
-&& /opengrok/packs/opengrok/bin/OpenGrok deploy \
+/packs/apache-tomcat/bin/startup.sh \
+&& /packs/opengrok/bin/OpenGrok deploy \
 && sleep 3 \
-&& /opengrok/packs/opengrok/bin/OpenGrok index /projects
+&& /packs/opengrok/bin/OpenGrok index /projects
 
-bash
+# bash 配置
+echo "" >> ~/.bashrc
+echo "if [ -f ~/.bashrc.local ];then "  >> ~/.bashrc
+echo "    source ~/.bashrc.local;"   >> ~/.bashrc
+echo "fi" >> ~/.bashrc
+echo "" >> ~/.bashrc
+/bin/bash
 

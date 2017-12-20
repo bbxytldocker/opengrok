@@ -28,10 +28,10 @@ COPY ./packs/apache-tomcat.tar.gz /tmp/
 COPY ./packs/opengrok.tar.gz /tmp/
 COPY ./bashrc /tmp/
 RUN cd /tmp/ \
-	&& mv bashrc ~/.bashrc \
+	&& mv bashrc.local ~/.bashrc.local \
 	&& mkdir -p /projects \
-	&& mkdir -p /opengrok/packs \
-	&& mkdir -p /opengrok/index-data
+	&& mkdir -p /packs \
+	&& mkdir -p /cache
 
 COPY ./start-run /usr/local/bin/start-run
 
